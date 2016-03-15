@@ -26,7 +26,7 @@ Basic usage:
 
 ```coffeescript
 # create class
-class MyApp.MyCtrl < IdFly.AngularClass
+class MyApp.MyCtrl extends IdFly.AngularClass
 
   # add dependecies to @_import
   @_import = [
@@ -53,7 +53,7 @@ Inheritance:
 
 ```coffeescript
 # inherit class from your own class
-class MyApp.MyChildCtrl < MyApp.MyCtrl
+class MyApp.MyChildCtrl extends MyApp.MyCtrl
 
   # note that you should append dependencies
   @_import = _.extend({}, MyApp.MyCtrl._import, [
@@ -76,7 +76,7 @@ Directive:
 
 ```coffeescript
 # create normal class
-class MyApp.MyChildCtrl < IdFly.AngularClass
+class MyApp.MyDirective extends IdFly.AngularClass
 
   # import dependecies as normal ones
   @_import: [
@@ -91,7 +91,7 @@ class MyApp.MyChildCtrl < IdFly.AngularClass
   }
 
   # use @directive to specify the directive
-  app.directive('widgetTextEditor', @directive())
+  app.directive('myDirective', @directive())
 
   # use link to setup stuff on element
   link: (element) ->
@@ -115,7 +115,7 @@ app.controller(($scope, $http) ->
 Becomes:
 
 ```coffeescript
-class MyApp.StatusCtrl < IdFly.AngularClass
+class MyApp.StatusCtrl extends IdFly.AngularClass
 
   @_import: [
     '$scope',
