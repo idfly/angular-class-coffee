@@ -37,7 +37,7 @@ class @IdFly.AngularClass
     imports = this._import || []
 
     factory = () =>
-      args = Array.prototype.concat.apply([], arguments)
+      args = Array.prototype.slice.call(arguments)
 
       result = resultCallback()
 
