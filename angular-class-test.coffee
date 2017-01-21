@@ -30,6 +30,12 @@ describe 'AngularClass.factory', ->
   it 'should return callback that sets dependecies 2', ->
     expect(Helper.factory()[2](null, 'MODULE')._DEP2).toEqual('MODULE')
 
+  it 'should inject array as dependency 1 properly', ->
+    expect(Helper.factory()[2]([1, 2, 3])._DEP1).toEqual([1, 2, 3])
+
+  it 'should inject array as dependency 2 properly', ->
+    expect(Helper.factory()[2](null, [1, 2, 3])._DEP2).toEqual([1, 2, 3])
+
   it 'should return instance of Helper', ->
     expect(Helper.factory()[2]() instanceof Helper).toEqual(true)
 
